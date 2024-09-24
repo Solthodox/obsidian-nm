@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
-#[clap(name = "obsidian-nm", author = "solthodox", version)]
+#[clap(name = "obsidiannm", author = "solthodox", version)]
 pub struct Args {
     #[clap(subcommand)]
     pub command: Subcommands,
@@ -28,7 +28,15 @@ pub struct Add {
     #[arg(value_name = "URL")]
     pub git_remote_url: Option<String>,
 
+    // Git repository of the notes
+    #[arg(value_name = "URL", requires = "git_remote_url")]
+    pub note_path: Option<String>,
+
     // If its a template
     #[arg(short = 't', long, default_value_t = false)]
     pub template: bool,
+
+    // Rename the file
+    #[arg(value_name = "URL", requires = "note_path")]
+    pub rename: Option<String>,
 }

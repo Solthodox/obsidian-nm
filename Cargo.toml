@@ -4,10 +4,10 @@ categories = ["development-tools", "development-tools"]
 description = "A Obsidian notes manager written in rust. It allows to easily install notes and templates on your Obsidian vault."
 edition = "2021"
 exclude = [".github/*", ".vscode/*"]
-homepage = "https://github.com/mario-eth/soldeer"
+homepage = "https://github.com/Solthodox/obsidian-nm"
 keywords = ["obsidian", "templates-manager"]
 license = "MIT"
-name = "obsidian-nm"
+name = "obsidiannm"
 readme = "./README.md"
 repository = ""
 version = "0.1.0"
@@ -23,7 +23,8 @@ tokio = { version = "1.38.0", features = [
 yansi = "1.0.1"
 thiserror = "1.0.63"
 tempfile = "3.7"
+dirs = "4.0"
 
 [[bin]]
-name = "soldeer"
+name = "obsidiannm"
 path = "src/main.rs"
