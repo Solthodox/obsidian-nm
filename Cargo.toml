@@ -1,0 +1,41 @@
+[package]
+authors = ["solthodox"]
+categories = ["development-tools", "development-tools"]
+description = "A Obsidian notes manager written in rust. It allows to easily install notes and templates on your Obsidian vault."
+edition = "2021"
+exclude = [".github/*", ".vscode/*"]
+homepage = "https://github.com/mario-eth/soldeer"
+keywords = ["obsidian", "templates-manager"]
+license = "MIT"
+name = "obsidian-nm"
+readme = "./README.md"
+repository = ""
+version = "0.1.0"
+rust-version = "1.80"
+
+[lints]
+workspace = true
+
+[workspace.lints.rustdoc]
+all = "warn"
+
+[workspace.lints.clippy]
+dbg-macro = "warn"
+manual-string-new = "warn"
+# uninlined-format-args = "warn"
+# use-self = "warn"
+redundant-clone = "warn"
+
+[workspace.lints.rust]
+rust-2018-idioms = "warn"
+# unreachable-pub = "warn"
+unused-must-use = "warn"
+redundant-lifetimes = "warn"
+
+[dependencies]
+clap = "4.5.18"
+tokio = "1.40.0"
+
+[[bin]]
+name = "soldeer"
+path = "src/main.rs"
