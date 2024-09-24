@@ -6,7 +6,8 @@ use obsidian_nm::commands::Args;
 use yansi::Paint as _;
 
 // TODO: run function in lib.rs
-fn main() {
+
+pub fn main() {
     //     let args = Args::parse();
     //     match obsidian_nm::run(args.command) {
     //         Ok(_) => {}
