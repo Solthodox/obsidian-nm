@@ -15,10 +15,10 @@ cargo install --git https://github.com/Solthodox/obsidian-nm --profile release
 
 To add notes: 
 ```
-obsidiannm add <git-link> <note-path>     
+obsidiannm add <git-link> <note-path> <new-note-name>
 ```
 
 To add templates:
 ```
-obsidiannm add <git-link> <note-path> -t 
+obsidiannm add <git-link> <note-path> <new-tamplate-name> -t 
 ```
