@@ -11,30 +11,12 @@ name = "obsidian-nm"
 readme = "./README.md"
 repository = ""
 version = "0.1.0"
-rust-version = "1.80"
-
-[lints]
-workspace = true
-
-[workspace.lints.rustdoc]
-all = "warn"
-
-[workspace.lints.clippy]
-dbg-macro = "warn"
-manual-string-new = "warn"
-# uninlined-format-args = "warn"
-# use-self = "warn"
-redundant-clone = "warn"
-
-[workspace.lints.rust]
-rust-2018-idioms = "warn"
-# unreachable-pub = "warn"
-unused-must-use = "warn"
-redundant-lifetimes = "warn"
 
 [dependencies]
-clap = "4.5.18"
+clap = {    version = "4.5.9", features = ["derive"] }
+git2 = "0.19.0"
 tokio = "1.40.0"
+yansi = "1.0.1"
 
 [[bin]]
 name = "soldeer"
