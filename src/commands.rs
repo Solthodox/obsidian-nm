@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
-#[clap(name = "obsidian-nm", author = "solthodox", version)]
+#[clap(name = "obsidiannm", author = "solthodox", version)]
 pub struct Args {
     #[clap(subcommand)]
     pub command: Subcommands,
