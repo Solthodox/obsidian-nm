@@ -5,14 +5,12 @@ use obsidian_nm::commands::Args;
 #[allow(unused_imports)]
 use yansi::Paint as _;
 
-// TODO: run function in lib.rs
-
 pub fn main() {
-    //     let args = Args::parse();
-    //     match obsidian_nm::run(args.command) {
-    //         Ok(_) => {}
-    //         Err(err) => {
-    //             eprintln!("{}", err.to_string().red())
-    //         }
-    //     }
+    let args = Args::parse();
+    match obsidian_nm::run(args.command) {
+        Ok(_) => {}
+        Err(err) => {
+            eprintln!("{}", err.to_string().red())
+        }
+    }
 }

@@ -1,4 +1,4 @@
-use std::{fs, path::Path};
+use std::{fs, path::{Path, PathBuf}};
 
 use crate::{errors, utils::format_path};
 use errors::DownloadError;
@@ -9,7 +9,7 @@ pub type Result<T> = std::result::Result<T, DownloadError>;
 
 pub async fn download_remote_note(
     url: String,
-    vault_path: String,
+    vault_path: PathBuf,
     note_path: String,
     as_template: bool,
 ) -> Result<()> {
@@ -66,7 +66,7 @@ mod tests {
         // Attempt to download the remote note
         let result = download_remote_note(
             test_url,
-            "vault".to_string(),
+            PathBuf::from("vault".to_string()),
             "README.md".to_string(),
             false,
         )
@@ -83,7 +83,7 @@ mod tests {
 
         // Attempt to download the remote note
         let result =
-            download_remote_note(test_url, "vault".to_string(), "README".to_string(), false).await;
+            download_remote_note(test_url, PathBuf::from("vault".to_string()), "README".to_string(), false).await;
 
         // Check that the result is Ok
         assert!(result.is_ok());
@@ -97,7 +97,7 @@ mod tests {
         // Attempt to download the remote note
         let result = download_remote_note(
             test_url,
-            "vault".to_string(),
+            PathBuf::from("vault".to_string()),
             "0A_Templates/0A_16_Investment/0A_16_1_Stocks".to_string(),
             true,
         )
@@ -114,7 +114,7 @@ mod tests {
 
         // Attempt to download the remote note
         let result =
-            download_remote_note(test_url, "vault".to_string(), "README".to_string(), false).await;
+            download_remote_note(test_url, PathBuf::from("vault".to_string()), "README".to_string(), false).await;
 
         // Check that the result is Ok
         assert!(result.is_ok());

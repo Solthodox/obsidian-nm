@@ -28,6 +28,10 @@ pub struct Add {
     #[arg(value_name = "URL")]
     pub git_remote_url: Option<String>,
 
+    // Git repository of the notes
+    #[arg(value_name = "URL", requires = "git_remote_url")]
+    pub note_path: Option<String>,
+
     // If its a template
     #[arg(short = 't', long, default_value_t = false)]
     pub template: bool,
