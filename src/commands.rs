@@ -35,4 +35,8 @@ pub struct Add {
     // If its a template
     #[arg(short = 't', long, default_value_t = false)]
     pub template: bool,
+
+    // Rename the file
+    #[arg(value_name = "URL", requires = "note_path")]
+    pub rename: Option<String>,
 }

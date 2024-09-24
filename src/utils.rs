@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 pub fn format_path(path: &String, as_template: bool) -> String {
     // Check if the path has a file extension
@@ -24,4 +24,14 @@ pub fn format_path(path: &String, as_template: bool) -> String {
 
     // Return the path as-is if it already ends with .md
     path.clone()
+}
+
+pub fn get_file_name_from_path(path: &String) -> Option<String> {
+    let path_buf = PathBuf::from(path);
+
+    // Get the file name as an Option<&OsStr>
+    match path_buf.file_name() {
+        Some(name) => name.to_str().map(String::from), // Convert to String
+        None => None,                                  // Return None if there is no file name
+    }
 }

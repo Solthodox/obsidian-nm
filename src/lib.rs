@@ -7,8 +7,8 @@ pub mod commands;
 pub mod errors;
 pub mod note_downloader;
 mod utils;
+use dirs::document_dir;
 use errors::ObsidianNmError;
-use dirs::document_dir; 
 
 #[tokio::main]
 pub async fn run(command: Subcommands) -> Result<(), ObsidianNmError> {
@@ -21,11 +21,17 @@ pub async fn run(command: Subcommands) -> Result<(), ObsidianNmError> {
             };
             let is_template = add.template;
             if let Some(note_path) = add.note_path {
+                let rename_as = add.rename;
                 note_downloader::download_remote_note(
                     git_remote_url,
                     get_default_vault_path(),
                     note_path,
                     is_template,
+                    if rename_as.is_some() {
+                        rename_as.unwrap()
+                    } else {
+                        String::new()
+                    },
                 )
                 .await
                 .unwrap();
@@ -38,8 +44,8 @@ pub async fn run(command: Subcommands) -> Result<(), ObsidianNmError> {
 
 fn get_default_vault_path() -> PathBuf {
     let vault_dir = document_dir()
-    .map(|dir| dir.join("Obsidian Vault"))
-    .unwrap();
+        .map(|dir| dir.join("Obsidian Vault"))
+        .unwrap();
 
     vault_dir
 }
